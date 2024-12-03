@@ -2,56 +2,56 @@ import 'package:flutter/material.dart';
 
 extension Paddings on Widget {
   Widget paddingAll(double padding) {
-    return Container(
+    return Padding(
       padding: EdgeInsets.all(padding),
       child: this,
     );
   }
 
   Widget paddingBottom(double padding) {
-    return Container(
+    return Padding(
       padding: EdgeInsets.only(bottom: padding),
       child: this,
     );
   }
 
   Widget paddingTop(double padding) {
-    return Container(
+    return Padding(
       padding: EdgeInsets.only(top: padding),
       child: this,
     );
   }
 
   Widget paddingEnd(double padding) {
-    return Container(
+    return Padding(
       padding: EdgeInsetsDirectional.only(end: padding),
       child: this,
     );
   }
 
   Widget paddingStart(double padding) {
-    return Container(
+    return Padding(
       padding: EdgeInsetsDirectional.only(start: padding),
       child: this,
     );
   }
 
   Widget paddingVertical(double padding) {
-    return Container(
+    return Padding(
       padding: EdgeInsets.symmetric(vertical: padding),
       child: this,
     );
   }
 
   Widget paddingHorizontal(double padding) {
-    return Container(
+    return Padding(
       padding: EdgeInsets.symmetric(horizontal: padding),
       child: this,
     );
   }
 
   Widget paddingSymmetric({double? vertical, double? horizontal}) {
-    return Container(
+    return Padding(
       padding: EdgeInsets.symmetric(
           vertical: vertical ?? 0, horizontal: horizontal ?? 0),
       child: this,
@@ -64,7 +64,7 @@ extension Paddings on Widget {
     double? left,
     double? right,
   }) {
-    return Container(
+    return Padding(
       padding: EdgeInsets.only(
         top: top ?? 0,
         bottom: bottom ?? 0,

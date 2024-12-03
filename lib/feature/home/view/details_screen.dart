@@ -11,6 +11,7 @@ class DetailsScreen extends StatelessWidget {
 
   /// Go to the Settings view
   void _goSettings(BuildContext context) async{
+    log('Go to the Settings view');
     showResult(bool? result) {
       if(result ?? false) {
         context.showSnackBar('Settings saved successfully');

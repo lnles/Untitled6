@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 
 extension Margins on Widget {
 
-  Widget margin(EdgeInsetsGeometry? margin) {
-    return Container(
-      margin: margin,
-      child: this,
-    );
-  }
-
   Widget marginAll(double margin) {
     return Container(
       margin: EdgeInsets.all(margin),
@@ -87,6 +80,7 @@ extension Margins on Widget {
 }
 
 extension InstestMargins on EdgeInsetsGeometry {
+
   EdgeInsetsGeometry marginBottom(double margin) {
     return EdgeInsets.only(bottom: margin);
   }

@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'dart:developer' as developer;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 extension Utilites on BuildContext {
@@ -72,15 +72,12 @@ isSmallDevice(Size size) {
 }
 
 log(dynamic message) {
-  if (kDebugMode) {
-    print('=======================');
-    print('-----------------------');
-    print(message);
-    print('=======================');
-    print(message.runtimeType);
-    print('-----------------------');
-    print('=======================');
-  }
+  var stackTrace = StackTrace.current;
+  var lines = stackTrace.toString().split('\n');
+  var trace = lines.map((line) => line.trim()).toList();
+  trace = trace.sublist(1, 3);
+  developer.log('StackTrace ${trace.join('\n')}\n'
+      '<${message.runtimeType}>$message');
 }
 
 final _serverErrorController = StreamController<bool>.broadcast();
