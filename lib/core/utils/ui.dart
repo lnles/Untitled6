@@ -15,11 +15,7 @@ class Ui {
     return SnackBar(
       content: Row(
         children: [
-          Container(
-            color: const Color(0xff4FB59E),
-            width: 2,
-            height: 40,
-          ),
+          VerticalDivider(thickness: 2, color: const Color(0xff4FB59E)),
           const Icon(Icons.done, color: Color(0xff4FB59E)).marginHorizontal(8),
           Expanded(
             child: Text(
@@ -48,18 +44,14 @@ class Ui {
   }
 
   static SnackBar errorSnack(
-      String message, {
-        SnackBarAction? action,
-        Duration? duration,
-      }) {
+    String message, {
+    SnackBarAction? action,
+    Duration? duration,
+  }) {
     return SnackBar(
       content: Row(
         children: [
-          Container(
-            color: const Color(0xffE4003B),
-            width: 2,
-            height: 40,
-          ),
+          VerticalDivider(thickness: 2, color: const Color(0xffE4003B)),
           const Icon(Icons.error, color: Color(0xffE4003B)).marginHorizontal(8),
           Expanded(
             child: Text(
@@ -88,10 +80,10 @@ class Ui {
   }
 
   static SnackBar warningSnack(
-      String message, {
-        SnackBarAction? action,
-        Duration? duration,
-      }) {
+    String message, {
+    SnackBarAction? action,
+    Duration? duration,
+  }) {
     return SnackBar(
       content: Row(
         children: [
