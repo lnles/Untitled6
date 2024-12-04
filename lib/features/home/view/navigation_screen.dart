@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:untitled6/feature/home/view/home_screen.dart';
+
+import 'home_screen.dart';
 
 class NavigationScreen extends StatelessWidget {
   const NavigationScreen({super.key, this.child});

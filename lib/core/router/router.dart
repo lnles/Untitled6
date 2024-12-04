@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:untitled6/feature/auth/view/login_screen.dart';
-import 'package:untitled6/feature/home/view/details_screen.dart';
-import 'package:untitled6/feature/home/view/home_screen.dart';
-import 'package:untitled6/feature/home/view/likes_screen.dart';
-import 'package:untitled6/feature/home/view/navigation_screen.dart';
-import 'package:untitled6/feature/home/view/profile_screen.dart';
-import 'package:untitled6/feature/home/view/search_screen.dart';
-import 'package:untitled6/feature/home/view/settings_screen.dart';
+import 'package:untitled6/features/auth/view/login_screen.dart';
+import 'package:untitled6/features/home/view/details_screen.dart';
+import 'package:untitled6/features/home/view/home_screen.dart';
+import 'package:untitled6/features/home/view/likes_screen.dart';
+import 'package:untitled6/features/home/view/navigation_screen.dart';
+import 'package:untitled6/features/home/view/profile_screen.dart';
+import 'package:untitled6/features/home/view/search_screen.dart';
+import 'package:untitled6/features/home/view/settings_screen.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
