@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:untitled6/core/utils/snack_bar_utils.dart';
-
+import 'package:untitled6/core/extensions/extensions.dart';
+import 'package:untitled6/core/utils/alert_utils.dart';
+import 'package:untitled6/core/utils/snackbar_utils.dart';
 /// The Home details view
 class DetailsScreen extends StatelessWidget {
   /// Constructs a [DetailsScreen]
@@ -10,9 +11,15 @@ class DetailsScreen extends StatelessWidget {
 
   /// Go to the Settings view
   void _goSettings(BuildContext context) async{
+    log('Go to the Settings view');
+    showResult(bool? result) {
+      if(result ?? false) {
+        context.showSnackBar('Settings saved successfully');
+      }
+    }
     final bool? result = await context.push<bool>('/settings');
     if(result ?? false) {
-      SnackBarUtils.showSnackBar('Settings saved successfully');
+      showResult(result);
     }
   }
 
@@ -36,11 +43,11 @@ class DetailsScreen extends StatelessWidget {
               label: const Text('Go to the Settings Screen'),
             ),
             FilledButton(
-              onPressed: () => SnackBarUtils.showSnackBar('This is a snackbar'),
+              onPressed: () =>  SnackBarUtils.showCenterSnackBar('This is a snackbar'),
               child: const Text('Show Snackbar'),
             ),
             FilledButton.tonal(
-              onPressed: () => SnackBarUtils.showSnackBar('This is a snackbar'),
+              onPressed: () => AlertUtils.successSnackBar('This is a snackbar'),
               style: ButtonStyle(
                 shape: WidgetStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4.0),
@@ -49,11 +56,11 @@ class DetailsScreen extends StatelessWidget {
               child: const Text('Show Snackbar'),
             )
             ,CupertinoButton(
-              onPressed: () => SnackBarUtils.showSnackBar('This is a snackbar'),
+              onPressed: () => context.showSnackBar('This is a snackbar'),
               child: const Text('Show Snackbar'),
             ),
             CupertinoButton.filled(
-              onPressed: () => SnackBarUtils.showSnackBar('This is a snackbar'),
+              onPressed: () => context.showSnackBar('This is a snackbar'),
               child: const Text('Show Snackbar'),
             )
           ],
