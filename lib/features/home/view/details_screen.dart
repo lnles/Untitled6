@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:untitled6/core/extensions/extensions.dart';
 import 'package:untitled6/core/utils/alert_utils.dart';
@@ -43,7 +44,7 @@ class DetailsScreen extends StatelessWidget {
               label: const Text('Go to the Settings Screen'),
             ),
             FilledButton(
-              onPressed: () =>  SnackBarUtils.showCenterSnackBar('This is a snackbar'),
+              onPressed: () =>  SnackBarUtils.showCenterSnackBar('showCenterSnackBar'),
               child: const Text('Show Snackbar'),
             ),
             FilledButton.tonal(
@@ -60,12 +61,19 @@ class DetailsScreen extends StatelessWidget {
               child: const Text('Show Snackbar'),
             ),
             CupertinoButton.filled(
-              onPressed: () => context.showSnackBar('This is a snackbar'),
-              child: const Text('Show Snackbar'),
+              onPressed: () => context.showBottomSheet(buildBottomSheet()),
+              child: const Text('bottom sheet'),
             )
           ],
         ),
       ),
     );
   }
+
+  Widget buildBottomSheet() => Container(
+    height: 200,
+    width: 1.sw,
+    color: Colors.white,
+    child: Text('This is a bottom sheet'),
+  );
 }

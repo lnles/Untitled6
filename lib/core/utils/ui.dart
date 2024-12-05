@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled6/core/extensions/extensions.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Ui {
   static Color parseColor(String hexCode, {double? opacity}) {
@@ -7,7 +7,7 @@ class Ui {
       return Color(int.parse(hexCode.replaceAll("#", "0xFF")))
           .withOpacity(opacity ?? 1);
     } catch (e) {
-      return const Color(0xFFCCCCCC).withOpacity(opacity ?? 1);
+      return const Color(0xFFFFFFFF).withOpacity(opacity ?? 1);
     }
   }
 
@@ -16,7 +16,9 @@ class Ui {
       content: Row(
         children: [
           VerticalDivider(thickness: 2, color: const Color(0xff4FB59E)),
-          const Icon(Icons.done, color: Color(0xff4FB59E)).marginHorizontal(8),
+          8.horizontalSpace,
+          const Icon(Icons.done, color: Color(0xff4FB59E)),
+          8.horizontalSpace,
           Expanded(
             child: Text(
               message,
@@ -52,7 +54,9 @@ class Ui {
       content: Row(
         children: [
           VerticalDivider(thickness: 2, color: const Color(0xffE4003B)),
-          const Icon(Icons.error, color: Color(0xffE4003B)).marginHorizontal(8),
+          8.horizontalSpace,
+          const Icon(Icons.error, color: Color(0xffE4003B)),
+          8.horizontalSpace,
           Expanded(
             child: Text(
               message,
@@ -92,8 +96,9 @@ class Ui {
             width: 2,
             height: 40,
           ),
-          const Icon(Icons.warning, color: Color(0xffFFC107))
-              .marginHorizontal(8),
+          8.horizontalSpace,
+          const Icon(Icons.warning, color: Color(0xffFFC107)),
+          8.horizontalSpace,
           Expanded(
             child: Text(
               message,
