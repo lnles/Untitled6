@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:untitled6/core/extensions/extensions.dart';
+import 'package:untitled6/features/home/provider/home_provider.dart';
 
 class HomeScreen extends StatelessWidget {
   /// Constructs a [HomeScreen]
@@ -7,12 +9,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<HomeProvider>(context);
     return Scaffold(
       appBar: AppBar(title: const Text('Home Screen'), centerTitle: true),
       body: Center(
         child: ElevatedButton(
-          onPressed: () => context.push('/details'),
-          child: const Text('Go to the Details Screen'),
+          onPressed: () => provider.increment(),
+          child: Text('Log to Console ${provider.counter}'),
         ),
       ),
     );
