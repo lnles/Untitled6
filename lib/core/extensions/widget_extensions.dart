@@ -6,7 +6,7 @@ extension PaddingExtension on Widget {
       {double? top, double? bottom, double? left, double? right, double? all}) {
     return Padding(
       padding:
-          EdgeInsets.fromLTRB(left ?? 0, top ?? 0, right ?? 0, bottom ?? 0),
+      EdgeInsets.fromLTRB(left ?? 0, top ?? 0, right ?? 0, bottom ?? 0),
       child: this,
     );
   }
@@ -18,7 +18,7 @@ extension MarginExtension on Widget {
       {double? top, double? bottom, double? left, double? right, double? all}) {
     return Container(
       margin:
-          EdgeInsets.fromLTRB(left ?? 0, top ?? 0, right ?? 0, bottom ?? 0),
+      EdgeInsets.fromLTRB(left ?? 0, top ?? 0, right ?? 0, bottom ?? 0),
       child: this,
     );
   }
@@ -41,15 +41,9 @@ extension TapCallbackExtension on Widget {
 
 /// Allows you to add a hover effect to a widget
 extension AlignExtension on Widget {
-  Widget align({
-    AlignmentGeometry alignment = Alignment.center,
-    double? widthFactor,
-    double? heightFactor,
-  }) {
+  Widget align(AlignmentGeometry alignment) {
     return Align(
       alignment: alignment,
-      widthFactor: widthFactor,
-      heightFactor: heightFactor,
       child: this,
     );
   }
@@ -65,17 +59,28 @@ extension ExpandedExtension on Widget {
   }
 }
 
+/// Allows you to add a size to a widget
+extension SizedBoxExt on Widget {
+  Widget size(double width, double height) {
+    return SizedBox(
+      width: width,
+      height: height,
+      child: this,
+    );
+  }
+}
+
 /// Allows you to add a decoration to a widget
 extension DecorationrExtension on Widget {
   Widget decoration(
       {Color? color,
-      DecorationImage? image,
-      Border? border,
-      BorderRadius? borderRadius,
-      List<BoxShadow>? boxShadow,
-      Gradient? gradient,
-      BlendMode? backgroundBlendMode,
-      BoxShape shape = BoxShape.rectangle}) {
+        DecorationImage? image,
+        Border? border,
+        BorderRadius? borderRadius,
+        List<BoxShadow>? boxShadow,
+        Gradient? gradient,
+        BlendMode? backgroundBlendMode,
+        BoxShape shape = BoxShape.rectangle}) {
     return DecoratedBox(
       decoration: BoxDecoration(
           color: color,
