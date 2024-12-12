@@ -17,7 +17,6 @@ extension PaddingExtension on Widget {
   }
 }
 
-/// Allows you to add margin to a widget
 extension MarginExtension on Widget {
   Widget margin(
       {double? top, double? bottom, double? left, double? right, double? all}) {
@@ -34,12 +33,16 @@ extension MarginExtension on Widget {
   }
 }
 
-/// Allows you to insert widgets inside a CustomScrollView
 extension WidgetSliverBoxExt on Widget {
+  /// 将当前Widget包装在SliverToBoxAdapter中，以便在CustomScrollView中使用
   Widget get sliverBox => SliverToBoxAdapter(child: this);
 }
 
-/// Allows you to add a tap callback to a widget
+extension ExpandedExtension on Widget {
+  /// 将当前Widget包装在Expanded中，使其在Flex布局中可以扩展以填充可用空间
+  Widget get expanded => Expanded(child: this);
+}
+
 extension TapCallbackExtension on Widget {
   Widget onTap(VoidCallback? onTap) {
     return InkWell(
@@ -49,7 +52,6 @@ extension TapCallbackExtension on Widget {
   }
 }
 
-/// Allows you to add a hover effect to a widget
 extension AlignExtension on Widget {
   Widget align(AlignmentGeometry alignment) {
     return Align(
@@ -59,19 +61,8 @@ extension AlignExtension on Widget {
   }
 }
 
-/// Allows you to add a background color to a widget
-extension ExpandedExtension on Widget {
-  Widget expanded({int flex = 1}) {
-    return Expanded(
-      flex: flex,
-      child: this,
-    );
-  }
-}
-
-/// Allows you to add a size to a widget
 extension SizedBoxExt on Widget {
-  Widget size(double width, double height) {
+  Widget size({double? width, double? height}) {
     return SizedBox(
       width: width,
       height: height,
@@ -80,7 +71,6 @@ extension SizedBoxExt on Widget {
   }
 }
 
-/// Allows you to add a decoration to a widget
 extension DecorationrExtension on Widget {
   Widget decoration(
       {Color? color,
