@@ -6,10 +6,12 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled6/features/home/provider/home_provider.dart';
 
+import 'core/di/di.dart';
 import 'core/router/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await init();
   await Hive.initFlutter();
   await Hive.openBox('user');
   await Hive.openBox('settings');
@@ -25,7 +27,7 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    init(context);
+    initWithContext(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => HomeProvider()),
@@ -43,7 +45,7 @@ class App extends StatelessWidget {
   }
 }
 
-Future<void> init(BuildContext context) async {
+Future<void> initWithContext(BuildContext context) async {
   ScreenUtil.init(context);
   if (kDebugMode) {
     Animate.restartOnHotReload = true;

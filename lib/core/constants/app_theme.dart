@@ -149,3 +149,11 @@ final Map<AppTheme, ThemeData> appThemeData = {
     ),
   ),
 };
+
+class AppTypography {
+  static final TextStyle appBarTitle = TextStyle(
+    color: AppColors.whiteColor,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+  );
+}
