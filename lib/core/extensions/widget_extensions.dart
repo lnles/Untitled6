@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 extension PaddingExtension on Widget {
   Widget padding(
       {double? top, double? bottom, double? left, double? right, double? all}) {
+    final edge = all != null
+        ? EdgeInsets.all(all)
+        : EdgeInsets.only(left: left ?? 0, top: top ?? 0,
+      right: right ?? 0,
+      bottom: bottom ?? 0,
+    );
     return Padding(
-      padding:
-      EdgeInsets.fromLTRB(left ?? 0, top ?? 0, right ?? 0, bottom ?? 0),
+      padding: edge,
       child: this,
     );
   }
@@ -16,9 +21,14 @@ extension PaddingExtension on Widget {
 extension MarginExtension on Widget {
   Widget margin(
       {double? top, double? bottom, double? left, double? right, double? all}) {
+    final edge = all != null
+        ? EdgeInsets.all(all)
+        : EdgeInsets.only(left: left ?? 0, top: top ?? 0,
+      right: right ?? 0,
+      bottom: bottom ?? 0,
+    );
     return Container(
-      margin:
-      EdgeInsets.fromLTRB(left ?? 0, top ?? 0, right ?? 0, bottom ?? 0),
+      margin: edge,
       child: this,
     );
   }
