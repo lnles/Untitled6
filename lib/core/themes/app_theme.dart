@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:untitled6/core/constants/app_colors.dart';
+import 'package:untitled6/core/themes/app_colors.dart';
 
+class AppTheme {
 
-enum AppTheme {
-  lightTheme,
-  darkTheme,
-}
-
-final Map<AppTheme, ThemeData> appThemeData = {
-  AppTheme.lightTheme: ThemeData(
+  static final lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
     colorScheme:  ColorScheme.fromSeed(seedColor: AppColors.martiniqueColor),
@@ -76,10 +71,8 @@ final Map<AppTheme, ThemeData> appThemeData = {
           curve: Curves.easeInOut, reverseCurve: Curves.easeInOut),
       childrenPadding: const EdgeInsets.all(5),
     ),
-  ),
-
-
-  AppTheme.darkTheme: ThemeData(
+  );
+  static final darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     colorScheme: const ColorScheme.dark(primary: AppColors.martiniqueColor),
@@ -147,8 +140,8 @@ final Map<AppTheme, ThemeData> appThemeData = {
           curve: Curves.easeInOut, reverseCurve: Curves.easeInOut),
       childrenPadding: const EdgeInsets.all(5),
     ),
-  ),
-};
+  );
+}
 
 class AppTypography {
   static final TextStyle appBarTitle = TextStyle(
