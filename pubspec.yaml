@@ -53,6 +53,7 @@ dependencies:
   json_annotation: ^4.9.0
   carousel_slider: ^5.0.0
   dartz: ^0.10.1
+  dartx: ^1.2.0
 
 dev_dependencies:
   flutter_test:
