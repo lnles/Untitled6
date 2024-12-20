@@ -2,96 +2,73 @@ import 'package:flutter/material.dart';
 
 /// Allows you to add padding to a widget
 extension PaddingExtension on Widget {
-  Widget padding(
-      {double? top, double? bottom, double? left, double? right, double? all}) {
-    final edge = all != null
-        ? EdgeInsets.all(all)
-        : EdgeInsets.only(left: left ?? 0, top: top ?? 0,
-      right: right ?? 0,
-      bottom: bottom ?? 0,
-    );
-    return Padding(
-      padding: edge,
-      child: this,
-    );
-  }
+  Widget padding(EdgeInsetsGeometry padding) =>
+      Padding(padding: padding, child: this);
 }
 
+/// Allows you to add margin to a widget
 extension MarginExtension on Widget {
-  Widget margin(
-      {double? top, double? bottom, double? left, double? right, double? all}) {
-    final edge = all != null
-        ? EdgeInsets.all(all)
-        : EdgeInsets.only(left: left ?? 0, top: top ?? 0,
-      right: right ?? 0,
-      bottom: bottom ?? 0,
-    );
-    return Container(
-      margin: edge,
-      child: this,
-    );
-  }
+  Widget margin(EdgeInsetsGeometry margin) =>
+      Container(margin: margin, child: this);
 }
 
+/// Allows you to insert widgets inside a CustomScrollView
 extension WidgetSliverBoxExt on Widget {
-  /// 将当前Widget包装在SliverToBoxAdapter中，以便在CustomScrollView中使用
-  Widget get sliverBox => SliverToBoxAdapter(child: this);
+  Widget sliverToBox() => SliverToBoxAdapter(child: this);
 }
 
+/// Allows you to add a background color to a widget
 extension ExpandedExtension on Widget {
-  /// 将当前Widget包装在Expanded中，使其在Flex布局中可以扩展以填充可用空间
-  Widget get expanded => Expanded(child: this);
+  Widget expanded() => Expanded(child: this);
 }
 
+/// Allows you to add a flex to a widget
+extension FlexExtension on Widget {
+  Widget flexible({int flex = 1, FlexFit fit = FlexFit.loose}) =>
+      Flexible(flex: flex, fit: fit, child: this);
+}
+
+/// Allows you to add a tap callback to a widget
 extension TapCallbackExtension on Widget {
-  Widget onTap(VoidCallback? onTap) {
-    return InkWell(
-      onTap: onTap,
-      child: this,
-    );
-  }
+  Widget onTap(VoidCallback? onTap) => InkWell(onTap: onTap, child: this);
 }
 
+/// Allows you to add an alignment to a widget
 extension AlignExtension on Widget {
-  Widget align(AlignmentGeometry alignment) {
-    return Align(
-      alignment: alignment,
-      child: this,
-    );
-  }
+  Widget align(AlignmentGeometry alignment) =>
+      Align(alignment: alignment, child: this);
+
+  Widget center() => Center(child: this);
+
+  Widget left() => Align(alignment: Alignment.centerLeft, child: this);
+
+  Widget right() => Align(alignment: Alignment.centerRight, child: this);
 }
 
+/// Allows you to add a size to a widget
 extension SizedBoxExt on Widget {
-  Widget size({double? width, double? height}) {
-    return SizedBox(
-      width: width,
-      height: height,
-      child: this,
-    );
-  }
+  Widget size({double? width, double? height}) =>
+      SizedBox(width: width, height: height, child: this);
 }
 
+/// Allows you to add a decoration to a widget
 extension DecorationrExtension on Widget {
-  Widget decoration(
-      {Color? color,
-        DecorationImage? image,
-        Border? border,
-        BorderRadius? borderRadius,
-        List<BoxShadow>? boxShadow,
-        Gradient? gradient,
-        BlendMode? backgroundBlendMode,
-        BoxShape shape = BoxShape.rectangle}) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-          color: color,
-          image: image,
-          border: border,
-          borderRadius: borderRadius,
-          boxShadow: boxShadow,
-          gradient: gradient,
-          backgroundBlendMode: backgroundBlendMode,
-          shape: shape),
-      child: this,
-    );
-  }
+  Widget decoratedBox(BoxDecoration decoration) =>
+      DecoratedBox(decoration: decoration, child: this);
+}
+
+extension TextFontWeight on TextStyle {
+  TextStyle bold() => copyWith(fontWeight: FontWeight.bold);
+
+  TextStyle semiBold() => copyWith(fontWeight: FontWeight.w600);
+
+  TextStyle medium() => copyWith(fontWeight: FontWeight.w500);
+
+  TextStyle regular() => copyWith(fontWeight: FontWeight.normal);
+
+  TextStyle light() => copyWith(fontWeight: FontWeight.w300);
+
+  TextStyle extraLight() => copyWith(fontWeight: FontWeight.w200);
+
+  TextStyle thin() => copyWith(fontWeight: FontWeight.w100);
 }
